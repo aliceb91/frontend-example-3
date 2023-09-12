@@ -11,10 +11,13 @@ describe('MessageView', () => {
 
     const view = new MessageView();
 
+    const userInput = document.querySelector('#message-input');
+    userInput.value = "Test note";
+
     const buttonEl = document.querySelector('#show-message-button');
     buttonEl.click();
 
-    expect(document.querySelector('#message')).not.toBeNull();
+    expect(document.querySelector('#message').textContent).toBe("Test note");
   });
   it('clicks the hide button', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
